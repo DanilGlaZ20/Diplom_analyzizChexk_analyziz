@@ -22,11 +22,12 @@ class ProductAdapter : ListAdapter<Product, ProductAdapter.Holder>(Comparator())
     }
     class Comparator:DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem.date.equals(newItem.date)
+            return oldItem.date.equals(newItem.date, true)
+
         }
 
         override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem.equals(newItem)
+            return oldItem==newItem
         }
 
     }
