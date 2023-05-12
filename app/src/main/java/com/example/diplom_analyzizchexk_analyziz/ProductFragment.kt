@@ -58,7 +58,7 @@ class ProductFragment : Fragment() {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080").client(client)
+            .baseUrl("http://192.168.1.9:8080").client(client)
             .addConverterFactory(GsonConverterFactory.create()).build()
         mainApi = retrofit.create(MainAPI::class.java)
     }

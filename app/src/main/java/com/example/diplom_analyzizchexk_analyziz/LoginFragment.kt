@@ -41,7 +41,7 @@ class LoginFragment : Fragment() {
             buttonLogin.setOnClickListener {
                 findNavController().navigate(R.id.action_loginFragment_to_productsFragment)
             }
-            buttonYes.setOnClickListener {
+            /*buttonYes.setOnClickListener {
                 auth(
                     Login(
                         loginInput.text.toString(),
@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
                     )
                 )
 
-            }
+            }*/
         }
 
     }
@@ -73,10 +73,10 @@ class LoginFragment : Fragment() {
         CoroutineScope(Dispatchers.IO).launch {
             val response=mainApi.auth(login)
             requireActivity().runOnUiThread {
-                binding.error.text = response.errorBody()?.string()
+                //binding.error.text = response.errorBody()?.string()
                 val tokens=response.body()
-                if(tokens!=null)
-                    binding.token.text=tokens.token
+                //if(tokens!=null)
+                   // binding.token.text=tokens.token
             }
         }
     }

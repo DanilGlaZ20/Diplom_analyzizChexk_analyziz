@@ -15,9 +15,10 @@ class ProductAdapter : ListAdapter<Product, ProductAdapter.Holder>(Comparator())
     class Holder(view: View): RecyclerView.ViewHolder(view){
         private val binding=ListItemBinding.bind(view)
         fun bind(product:Product)=with(binding){
-            name.text=product.shop
-            date.text=product.date
-            sum.text=product.sum
+            name.text="Магазин:"+product.shop
+            date.text="Дата:"+product.date
+            productView.text="Продукт:"+product.name_product
+            sum.text=product.price_product.toString()+" рублей"
         }
     }
     class Comparator:DiffUtil.ItemCallback<Product>() {
